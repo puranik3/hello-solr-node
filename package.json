@@ -1,0 +1,19 @@
+{
+  "name": "hello-solr-node",
+  "version": "1.0.0",
+  "description": "Project to explore using SOLR client in a node.js app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "SOLR",
+    "node",
+    "solr_client",
+    "http",
+    "mongodb",
+    "mongo"
+  ],
+  "author": "Prashanth Puranik",
+  "license": "ISC"
+}
