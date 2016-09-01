@@ -15,5 +15,8 @@
     "mongo"
   ],
   "author": "Prashanth Puranik",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "solr-client": "^0.6.0"
+  }
 }
