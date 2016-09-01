@@ -17,6 +17,7 @@
   "author": "Prashanth Puranik",
   "license": "ISC",
   "dependencies": {
+    "assert": "^1.4.1",
     "solr-client": "^0.6.0"
   }
 }
