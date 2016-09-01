@@ -4,7 +4,7 @@ var _       = require( 'lodash' );
 var utils   = require( './utils' );
 
 var Tester = (function() {
-    // stores options required by all methods
+    // stores connection options required by all methods
     var options = null;
     // defaults for options
     var defaults = {
@@ -19,6 +19,7 @@ var Tester = (function() {
     function init( opts ) {
         options = _.extend( {}, ( opts || {} ), defaults );
         client = _getClient( options );
+        client.autoCommit = true;
     }
 
     // returns existing solr client or one created using passed opts
@@ -29,15 +30,10 @@ var Tester = (function() {
     }
 
     // insert or update a document
-    // cb() gets called with args as in client.commit()
+    // cb() gets called with args as in client.add()
     function add( doc, cb, opts ) {
         var client = _getClient( opts );        
-        client.add( doc, function( err, obj ) {
-            assert.equal( err, null );
-            
-            // @todo - Try combining relevant info from objects obj and arguments passed to commit() callback
-            client.commit( cb );
-        });
+        client.add( doc, cb );
     }
 
     // fetch a document by id
