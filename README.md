@@ -3,9 +3,11 @@ Project to explore using SOLR client in a node.js app.
 
 Wrapping [Node client for Solr](https://www.npmjs.com/package/solr-client) methods we create a wrapper module that can be used to perform CRUD operations (further) easily.
 
+# Appendix
+## References
+[Solr Reference Guide](https://cwiki.apache.org/confluence/display/solr/Apache+Solr+Reference+Guide)
 [Documentation for the solr-client module](http://lbdremy.github.io/solr-node-client/code/solr.js.html)
 
-# Appendix
 ## Curl commands to work with Solr
 - POSTing a document to mycore core - note that commitWthin=<<x>> is required to make sure we will have document added while querying after x milliseconds
 ```
