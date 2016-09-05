@@ -1,6 +1,0 @@
-POSTing a document to mycore core - note that commitWthin=<<x>> is required to make sure we will have document added while querying after x milliseconds
-curl -X POST -H "Content-Type: application/json" -d '[{"id":1001,"title":"hello solr"}]' "http://localhost:8983/solr/mycore/update?wt=json"
-http://localhost:8983/solr/mycore/update?commitWithin=1000&overwrite=true&wt=json
-
-GET
-curl -X GET "http://localhost:8983/solr/mycore/select?indent=on&q=*:*&rows=50&wt=json"
