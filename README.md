@@ -16,6 +16,11 @@ curl -X POST -H "Content-Type: application/json" -d '[{"id":1001,"title":"hello 
 curl -X GET "http://localhost:8983/solr/mycore/select?indent=on&q=*:*&rows=50&wt=json"
 ```
 
+- DELETEing all documents
+```
+curl http://localhost:8983/solr/mycore/update -H "Content-type: text/xml" --data-binary '<delete><query>*:*</query></delete>'
+```
+
 ## Working with Logstash
 Uploading data from Mongo DB to Solr (config file is mongodb_to_solr.conf)  
 From within logstash\bin folder execute this
