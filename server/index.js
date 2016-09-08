@@ -1,21 +1,40 @@
+var http     = require( 'http' );
+var express = require( 'express') ;
 var assert   = require( 'assert');
 var solrTest = require( './solr-test' );
 var utils    = require( './utils' );
 
-var documents = [];
-(function generateDocuments() {
-    for( var i = 0; i < 10; i++ ) {
-        documents.push({
-            id : 100000 + utils.getRandomIntInRange( 100000 ),
-            title : 'Hello, ' + utils.getAnimatedScientist() + '. This is ' + utils.getAnimatedScientist() + '!'
-        });
-    }
-})();
+var WEBAPP_PORT = process.env.WEBAPP_PORT || 3000;
 
 solrTest.init({
     host :'192.168.99.100',
-    core : 'mycore1'
+    core : 'products'
 });
+
+var app = express();
+
+app.get('/products/search', function(req, res) {
+    var params = req.params;
+    console.log( utils.stringifyObj( req ) );
+    /*
+    solrTest.findById( searchId, {}, function( err, obj ) {
+        assert.equal( err, null );
+
+        console.log( 'Result of searching for document with id = %s : %s', searchId, utils.stringifyObj( obj ) );
+    });
+    */
+    res.send([{name:'wine1'}, {name:'wine2'}]);
+});
+
+app.get('/products/:id', function(req, res) {
+    res.send({id:req.params.id, name: "The Name", description: "description"});
+});
+
+app.listen(WEBAPP_PORT);
+
+
+/*
+
 
 solrTest.add(
     documents,
@@ -30,3 +49,4 @@ solrTest.add(
         });
     }
 );
+*/
