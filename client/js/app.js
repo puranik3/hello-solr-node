@@ -1,19 +1,26 @@
-$( document ).ready( function() {
-    $( '#txtSearch' ).on( 'keyup', function() {
-        var searchPhrase = $( this ).val();
+(function() {
+    $( document ).ready( function() {
+        var $txtSearch = $( '#txtSearch' );
+        var $lstMatchingResults = $( '#lstMatchingResults' );
 
-        var searchObj = {
-            fl: 'skuName',
-            q: 'skuName:' + searchPhrase,
-            wt: 'json'
-        };
+        $txtSearch.on( 'keyup', function() {
+            var searchPhrase = $.trim( $( this ).val() );
 
-        $.ajax({
-            url: "/products/search?"+ $.param( searchObj ),
-            dataType: 'json',
-            success: function( data ) {
-                console.log( data )
-            }
-        })
+            var searchObj = {
+                fl: 'skuName',
+                q: 'skuName:' + searchPhrase + '*',
+                wt: 'json'
+            };
+
+            $.ajax({
+                url: "/products/search?"+ $.param( searchObj ),
+                dataType: 'json',
+                success: function( data ) {
+                    $lstMatchingResults.html( data.map( function( product ) {
+                        return '<option value="' + product + '">' + product + '</option>';
+                    }).join( '' ) );
+                }
+            });
+        });
     });
-});
+}());

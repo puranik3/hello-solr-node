@@ -4,9 +4,10 @@
         <title>Solr | PoC</title>
     </head>
     <body>
+        <datalist id="lstMatchingResults"></datalist>
         <form>
-            <label for="txtSearch">Search for a product</label>
-            <input type="search" id="txtSearch" name="txtSearch" />
+            <label for="txtSearch">Search for a product (hit enter to search)</label>
+            <input type="search" id="txtSearch" name="txtSearch" list="lstMatchingResults" />
         </form>
 
         <script src="js/lib/jquery-3.1.0.js"></script>

@@ -19,6 +19,7 @@
   "dependencies": {
     "assert": "^1.4.1",
     "express": "^4.14.0",
+    "lodash": "^4.15.0",
     "solr-client": "^0.6.0"
   }
 }
