@@ -5,8 +5,8 @@ Wrapping [Node client for Solr](https://www.npmjs.com/package/solr-client) metho
 
 # Appendix
 ## References
-[Solr Reference Guide](https://cwiki.apache.org/confluence/display/solr/Apache+Solr+Reference+Guide)
-[Documentation for the solr-client module](http://lbdremy.github.io/solr-node-client/code/solr.js.html)
+- [Solr Reference Guide](https://cwiki.apache.org/confluence/display/solr/Apache+Solr+Reference+Guide)
+- [Documentation for the solr-client module](http://lbdremy.github.io/solr-node-client/code/solr.js.html)
 
 ## Curl commands to work with Solr
 - POSTing a document to mycore core - note that commitWthin=<<x>> is required to make sure we will have document added while querying after x milliseconds
